@@ -47,9 +47,9 @@ export default class Home extends Component {
   searchForTitle = (e) => {
     const { titleSearched } = this.state;
 
-    this.setState({ titleSearched: e.target.value });
-
-    this.loadSearchedPosts();
+    this.setState({ titleSearched: e.target.value }, () => {
+      this.loadSearchedPosts();
+    });
   };
 
   loadSearchedPosts = () => {
